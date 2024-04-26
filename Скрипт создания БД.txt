@@ -1,0 +1,53 @@
+﻿CREATE DATABASE avito;
+
+CREATE TABLE users (
+    user_id SERIAL PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE items (
+    item_id SERIAL PRIMARY KEY,
+    item_name VARCHAR(100) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL
+);
+
+CREATE TABLE purchases (
+    purchase_id SERIAL PRIMARY KEY,
+    user_id INT REFERENCES users(user_id),
+    item_id INT REFERENCES items(item_id),
+    purchase_date DATE NOT NULL
+);
+
+INSERT INTO users (username, email) VALUES ('Иван Петров', 'ivan.pet86@gmail.com');
+INSERT INTO users (username, email) VALUES ('Екатерина Смирнова', 'ekaterina.smirnova93@gmail.com');
+INSERT INTO users (username, email) VALUES ('Дмитрий Иванов', 'dmitriy.ivanov75@gmail.com');
+INSERT INTO users (username, email) VALUES ('Анна Морозова', 'anna.morozova88@gmail.com');
+INSERT INTO users (username, email) VALUES ('Сергей Соколов', 'sergey.sokolov79@gmail.com');
+INSERT INTO users (username, email) VALUES ('Ольга Кузнецова', 'olga.kuznetsova90@gmail.com');
+INSERT INTO users (username, email) VALUES ('Алексей Новиков', 'alexey.novikov82@gmail.com');
+INSERT INTO users (username, email) VALUES ('Мария Александрова', 'maria.aleksandrova87@gmail.com');
+INSERT INTO users (username, email) VALUES ('Владимир Козлов', 'vladimir.kozlov84@gmail.com');
+INSERT INTO users (username, email) VALUES ('Наталья Белова', 'natalia.belova91@gmail.com');
+
+INSERT INTO items (item_name, price) VALUES ('Летающий ковер', 5000.00);
+INSERT INTO items (item_name, price) VALUES ('Машина времени', 1000000.00);
+INSERT INTO items (item_name, price) VALUES ('Зелье бессмертия', 50000.00);
+INSERT INTO items (item_name, price) VALUES ('Алмазный карандаш, пишущий только правду', 20000.00);
+INSERT INTO items (item_name, price) VALUES ('Книга секретов Вселенной', 100000.00);
+INSERT INTO items (item_name, price) VALUES ('Карта, ведущая к сундуку с сокровищами', 5000.00);
+INSERT INTO items (item_name, price) VALUES ('Камень мудрости, открывающий все тайны', 30000.00);
+INSERT INTO items (item_name, price) VALUES ('Волшебное зеркало, отражающее желания', 15000.00);
+INSERT INTO items (item_name, price) VALUES ('Меч могущества, способный разрезать все преграды', 25000.00);
+INSERT INTO items (item_name, price) VALUES ('Часы, показывающие время до конца света', 5000.00);
+
+INSERT INTO purchases (user_id, item_id, purchase_date) VALUES (1, 1, '2024-02-10');
+INSERT INTO purchases (user_id, item_id, purchase_date) VALUES (2, 2, '2024-02-12');
+INSERT INTO purchases (user_id, item_id, purchase_date) VALUES (3, 3, '2024-02-14');
+INSERT INTO purchases (user_id, item_id, purchase_date) VALUES (4, 4, '2024-02-15');
+INSERT INTO purchases (user_id, item_id, purchase_date) VALUES (5, 5, '2024-02-17');
+INSERT INTO purchases (user_id, item_id, purchase_date) VALUES (6, 6, '2024-02-22');
+INSERT INTO purchases (user_id, item_id, purchase_date) VALUES (7, 7, '2024-02-24');
+INSERT INTO purchases (user_id, item_id, purchase_date) VALUES (8, 8, '2024-03-12');
+INSERT INTO purchases (user_id, item_id, purchase_date) VALUES (9, 9, '2024-03-17');
+INSERT INTO purchases (user_id, item_id, purchase_date) VALUES (10, 10, '2024-03-23');
